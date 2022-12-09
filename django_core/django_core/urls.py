@@ -24,7 +24,7 @@ from rest_framework import permissions
 from .settings import HOST_URL
 from django.conf import settings
 from django.conf.urls.static import static
-
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 def patch_the_method(func):
     def inner(*args, **kwargs):
@@ -50,9 +50,14 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-                  path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+                  path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+                  path(
+                      "api/schema/swagger-ui/",
+                      SpectacularSwaggerView.as_view(url_name="schema"),
+                      name="swagger-ui",
+                  ),
 
-                  path('', include('rest_framework.urls', namespace='rest_framework')),
+                 
                   re_path('admin/', admin.site.urls),
                   re_path(r'^auth/', include('djoser.urls')),
                   re_path(r'^auth/', include('djoser.urls.authtoken')),
