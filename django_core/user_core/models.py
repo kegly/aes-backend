@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models.signals import pre_save
 
 
 class User(AbstractUser):
@@ -7,8 +8,11 @@ class User(AbstractUser):
     is_hr = models.BooleanField(default=False)
     email_confirmed = models.BooleanField(default=False)
 
+    REQUIRED_FIELDS = ['username', 'is_student']
+    USERNAME_FIELD = 'email'
+
     def __str__(self):
-        return self.username
+        return self.email
 
 
 class Company(models.Model):
@@ -27,7 +31,7 @@ class Student(models.Model):
     email = models.EmailField(max_length=254)
 
     def __str__(self):
-        return self.user.username
+        return str(self.user)
 
 
 class HR(models.Model):
@@ -38,4 +42,4 @@ class HR(models.Model):
     email = models.EmailField(max_length=254)
 
     def __str__(self):
-        return self.user.username
+        return str(self.user)

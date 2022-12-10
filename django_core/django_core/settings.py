@@ -55,6 +55,7 @@ THIRD_PARTY_APPS = [
     "constance.backends.database",
     "import_export",
     "colorfield",
+    "rest_framework.authtoken,
 ]
 
 LOCAL_APPS = ["user_core"]
@@ -178,9 +179,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
 
 AUTH_USER_MODEL = 'user_core.User'
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 # Email settings
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
