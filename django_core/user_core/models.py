@@ -8,11 +8,11 @@ class User(AbstractUser):
     is_hr = models.BooleanField(default=False)
     email_confirmed = models.BooleanField(default=False)
 
-    REQUIRED_FIELDS = ['username', 'is_student']
-    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['email', 'is_student']
+    USERNAME_FIELD = 'username'
 
     def __str__(self):
-        return self.email
+        return self.username
 
 
 class Company(models.Model):

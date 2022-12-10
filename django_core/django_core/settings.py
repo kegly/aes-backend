@@ -48,6 +48,7 @@ THIRD_PARTY_APPS = [
     "ckeditor",
     "corsheaders",
     "drf_spectacular",
+    "rest_framework.authtoken",
     "djoser",
     "rest_framework",
     "django_filters",
@@ -55,7 +56,6 @@ THIRD_PARTY_APPS = [
     "constance.backends.database",
     "import_export",
     "colorfield",
-    "rest_framework.authtoken",
 ]
 
 LOCAL_APPS = ["user_core"]
@@ -63,7 +63,7 @@ LOCAL_APPS = ["user_core"]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 DJOSER = {
-    "LOGIN_FIELD": "email",
+    "LOGIN_FIELD": "username",
     "USER_CREATE_PASSWORD_RETYPE": True,
     "USERNAME_CHANGED_EMAIL_CONFIRMATION": True,
     "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
@@ -77,10 +77,10 @@ DJOSER = {
     "PASSWORD_RESET_CONFIRM_RETYPE": True,
 
     "SERIALIZERS": {
-        "user_create": "users.serializers.UserSerializer",
-        "user": "djoser.serializers.UserSerializer",
-        "current_user": "djoser.serializers.UserSerializer",
-        "user_delete": "djoser.serializers.UserSerializer",
+        "user_create": "user_core.serializers.BaseUserCreateSerializer",
+        "user": "user_core.serializers.BaseUserSerializer",
+        "current_user": "user_core.serializers.UserSerializer",
+        "user_delete": "user_core.serializers.UserSerializer",
     },
 
 }
@@ -151,7 +151,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }

@@ -53,8 +53,7 @@ schema_view = get_schema_view(
 urlpatterns = [
                   re_path('admin/', admin.site.urls),
                   re_path(r'^auth/', include('djoser.urls')),
-                  re_path(r'^auth/', include('djoser.urls.authtoken')),
+                  re_path(r'^auth/', include('djoser.urls.jwt')),
                   path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
                   path("api/swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui",),
-                  # re_path(r'^auth/', include("djoser.urls.jwt")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
