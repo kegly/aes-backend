@@ -16,6 +16,7 @@ class CV(models.Model):
     phone_number = models.CharField(max_length=12, blank=True, null=True)
     contacts = models.CharField(max_length=128, blank=True, null=True)
     pet_projects = models.URLField(max_length=200, blank=True, null=True)
+    is_premium = models.BooleanField(default=False)
 
     @property
     def rating(self):

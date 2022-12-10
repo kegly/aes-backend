@@ -11,7 +11,7 @@ class CVSerializer(serializers.ModelSerializer):
         model = CV
         fields = (
             'id', 'student', 'image', 'job', 'salary', 'about_me', 'work_places', 'skills', 'education', 'contacts',
-            'phone_number', 'pet_projects', 'rating')
+            'phone_number', 'pet_projects', 'rating', 'is_premium')
 
 
 class RetrieveCVSerializer(serializers.ModelSerializer):
@@ -22,4 +22,4 @@ class RetrieveCVSerializer(serializers.ModelSerializer):
         model = CV
         fields = (
             'id', 'student', 'image', 'job', 'salary', 'about_me', 'work_places', 'skills', 'education', 'contacts',
-            'phone_number', 'pet_projects', 'rating')
+            'phone_number', 'pet_projects', 'rating', 'is_premium')
