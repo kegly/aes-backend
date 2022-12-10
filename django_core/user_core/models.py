@@ -9,8 +9,7 @@ class User(AbstractUser):
     """
     is_student = models.BooleanField(default=False)
     is_hr = models.BooleanField(default=False)
-
-    REQUIRED_FIELDS = ['email', 'is_student']
+    REQUIRED_FIELDS = ['email', 'is_student', 'is_hr']
     USERNAME_FIELD = 'username'
 
     def __str__(self):
@@ -19,7 +18,7 @@ class User(AbstractUser):
     class Meta:
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
-
+        
 
 class Company(models.Model):
     name = models.CharField(max_length=255)
