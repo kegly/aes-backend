@@ -11,12 +11,6 @@ class BaseUserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
         fields = '__all__'
-
-
-class BaseUserSerializer(UserSerializer):
-    class Meta(UserSerializer.Meta):
-        model = User
-        fields = '__all__'
         
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -24,3 +18,10 @@ class StudentSerializer(serializers.ModelSerializer):
         model = Student
         fields = '__all__'
 
+
+class BaseUserSerializer(UserSerializer):
+    student = StudentSerializer()
+
+    class Meta(UserSerializer.Meta):
+        model = User
+        fields = ('id', 'username', 'is_student', 'is_hr', 'student')

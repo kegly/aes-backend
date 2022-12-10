@@ -7,3 +7,5 @@ class StudentView(viewsets.ModelViewSet):
     serializer_class = StudentSerializer
     queryset = Student.objects.all()
     http_method_names = ['get', 'post', 'patch']
+
+
