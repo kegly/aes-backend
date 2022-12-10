@@ -55,7 +55,7 @@ THIRD_PARTY_APPS = [
     "constance.backends.database",
     "import_export",
     "colorfield",
-    "rest_framework.authtoken,
+    "rest_framework.authtoken",
 ]
 
 LOCAL_APPS = ["user_core"]
