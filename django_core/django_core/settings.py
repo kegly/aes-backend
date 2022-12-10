@@ -58,7 +58,7 @@ THIRD_PARTY_APPS = [
     "colorfield",
 ]
 
-LOCAL_APPS = ["user_core"]
+LOCAL_APPS = ["user_core", "tags", "cv"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -130,7 +130,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -152,6 +151,7 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
@@ -190,7 +190,6 @@ EMAIL_HOST_USER = env.str('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
 APPEND_SLASH = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
 
 JAZZMIN_SETTINGS = {
     "hide_apps": ("constance", "filebrowser", "auth"),
