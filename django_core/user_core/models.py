@@ -4,6 +4,9 @@ from tags.models import Tag
 
 
 class User(AbstractUser):
+    """
+    A user is a person that has an account on the website
+    """
     is_student = models.BooleanField(default=False)
     is_hr = models.BooleanField(default=False)
 
