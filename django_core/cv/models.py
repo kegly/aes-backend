@@ -1,6 +1,7 @@
 from django.db import models
 from tags.models import Tag
 from user_core.models import Student
+from projects.models import Project
 
 
 # Create your models here.
@@ -15,7 +16,7 @@ class CV(models.Model):
     education = models.CharField(max_length=512, blank=True, null=True)
     phone_number = models.CharField(max_length=12, blank=True, null=True)
     contacts = models.CharField(max_length=128, blank=True, null=True)
-    pet_projects = models.URLField(max_length=200, blank=True, null=True)
+    pet_projects = models.ManyToManyField(Project, blank=True, null=True, related_name='cv')
     is_premium = models.BooleanField(default=False)
 
     @property
@@ -24,3 +25,7 @@ class CV(models.Model):
 
     def __str__(self):
         return str(self.student)
+
+    class Meta:
+        verbose_name = "Портфолио"
+        verbose_name_plural = "Портфолио"

@@ -1,11 +1,13 @@
 from .models import CV
 from rest_framework import serializers
 from tags.models import Tag
+from projects.models import Project
 
 
 class CVSerializer(serializers.ModelSerializer):
     rating = serializers.FloatField(read_only=True)
     skills = serializers.PrimaryKeyRelatedField(many=True, queryset=Tag.objects.all(), required=False)
+    pet_projects = serializers.PrimaryKeyRelatedField(many=True, queryset=Project.objects.all(), required=False)
 
     class Meta:
         model = CV
@@ -17,6 +19,7 @@ class CVSerializer(serializers.ModelSerializer):
 class RetrieveCVSerializer(serializers.ModelSerializer):
     rating = serializers.FloatField(read_only=True)
     skills = serializers.SlugRelatedField(read_only=True, slug_field='name', many=True)
+    pet_projects = serializers.PrimaryKeyRelatedField(many=True, queryset=Project.objects.all(), required=False)
 
     class Meta:
         model = CV

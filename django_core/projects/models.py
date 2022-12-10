@@ -9,7 +9,8 @@ class Project(models.Model):
     Model for a project
     """
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='projects', blank=True, null=True)
+    company = models.CharField(max_length=255, blank=True, null=True)
+    image = models.ImageField(default='default.jpg', upload_to='projects', blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     group = models.ForeignKey(Team, related_name='projects', on_delete=models.CASCADE, blank=True, null=True)
     is_draft = models.BooleanField(default=True)
@@ -19,3 +20,7 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Проект"
+        verbose_name_plural = "Проекты"

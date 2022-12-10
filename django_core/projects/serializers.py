@@ -10,7 +10,7 @@ class RetrieveProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = (
             'id', 'name', 'image', 'description', 'group', 'is_draft', 'created_at', 'updated_at',
-            'tags')
+            'tags', 'company')
 
 
 class ProjectSerializer(serializers.ModelSerializer):
@@ -20,4 +20,4 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = (
             'id', 'name', 'image', 'description', 'group', 'is_draft', 'created_at', 'updated_at',
-            'tags')
+            'tags', 'company')
