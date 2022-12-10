@@ -29,6 +29,10 @@ class Company(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Компания"
+        verbose_name_plural = "Компании"
+
 
 class Student(models.Model):
     class GENDER(models.TextChoices):

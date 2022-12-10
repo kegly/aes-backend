@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import User, Student
+from .models import User, Student, Company
 
 
 class StudentInline(admin.StackedInline):
@@ -18,3 +18,4 @@ class UserAdmin(BaseUserAdmin):
 # Re-register UserAdmin
 admin.site.register(User, UserAdmin)
 admin.site.register(Student)
+admin.site.register(Company)
