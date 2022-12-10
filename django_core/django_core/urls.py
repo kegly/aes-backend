@@ -25,34 +25,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
-
-def patch_the_method(func):
-    def inner(*args, **kwargs):
-        with patch('rest_framework.permissions.IsAuthenticated.has_permission', return_value=True):
-            response = func(*args, **kwargs)
-        return response
-
-    return inner
-
-
-schema_view = get_schema_view(
-    openapi.Info(
-        title="Snippets API",
-        default_version='v1',
-        description="Test description",
-        terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@snippets.local"),
-        license=openapi.License(name="BSD License"),
-    ),
-    public=True,
-    url=HOST_URL,
-    permission_classes=[permissions.AllowAny]
-)
-
 urlpatterns = [
                   re_path('admin/', admin.site.urls),
                   re_path(r'^auth/', include('djoser.urls')),
                   re_path(r'^auth/', include('djoser.urls.jwt')),
+                  path('api/', include('user_core.urls')),
+                  path('api/', include('cv.urls')),
                   path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
-                  path("api/swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui",),
+                  path("api/swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui", ),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
