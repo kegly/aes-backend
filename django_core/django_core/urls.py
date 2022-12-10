@@ -53,6 +53,10 @@ urlpatterns = [
                   re_path('admin/', admin.site.urls),
                   re_path(r'^auth/', include('djoser.urls')),
                   re_path(r'^auth/', include('djoser.urls.jwt')),
+                  path("api/", include("teams.urls"), name="teams"),
+                  path("api/", include("rating.urls"), name="rating"),
+                  path('api/', include('user_core.urls')),
+                  path('api/', include('cv.urls')),
                   path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
-                  path("api/swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui",),
+                  path("api/swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

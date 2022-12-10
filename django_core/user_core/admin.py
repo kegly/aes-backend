@@ -17,3 +17,4 @@ class UserAdmin(BaseUserAdmin):
 
 # Re-register UserAdmin
 admin.site.register(User, UserAdmin)
+admin.site.register(Student)
