@@ -32,9 +32,9 @@ class Student(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     city = models.CharField(max_length=50, blank=True, null=True)
-    skills = models.ManyToManyField(Tag, blank=True, null=True)
     birthday = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=6, blank=True, choices=GENDER.choices, default=GENDER.male)
+    language = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         return str(self.user)
