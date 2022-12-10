@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from djoser.serializers import UserCreateSerializer, UserSerializer, UserDeleteSerializer
 from rest_framework import serializers
-from .models import Student, Company
+from .models import Student, Company, HR
 
 User = get_user_model()
 
@@ -29,4 +29,10 @@ class BaseUserSerializer(UserSerializer):
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
+        fields = '__all__'
+
+
+class HRSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HR
         fields = '__all__'

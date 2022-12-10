@@ -58,7 +58,7 @@ THIRD_PARTY_APPS = [
     "colorfield",
 ]
 
-LOCAL_APPS = ["user_core", "projects", "teams", "rating", "tags", "cv"]
+LOCAL_APPS = ["user_core", "projects", "teams", "rating", "tags", "cv", 'applications']
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 

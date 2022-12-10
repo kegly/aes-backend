@@ -42,6 +42,7 @@ class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    middle_name = models.CharField(max_length=50, blank=True, null=True)
     city = models.CharField(max_length=50, blank=True, null=True)
     birthday = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=6, blank=True, choices=GENDER.choices, default=GENDER.male)
@@ -60,6 +61,7 @@ class HR(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    middle_name = models.CharField(max_length=50, blank=True, null=True)
     email = models.EmailField(max_length=254)
 
     def __str__(self):
