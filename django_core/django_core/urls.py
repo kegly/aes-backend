@@ -26,6 +26,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
+
 def patch_the_method(func):
     def inner(*args, **kwargs):
         with patch('rest_framework.permissions.IsAuthenticated.has_permission', return_value=True):
@@ -46,21 +47,14 @@ schema_view = get_schema_view(
     ),
     public=True,
     url=HOST_URL,
-    permission_classes=(permissions.AllowAny,)
+    permission_classes=[permissions.AllowAny]
 )
 
 urlpatterns = [
-                  path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
-                  path(
-                      "api/schema/swagger-ui/",
-                      SpectacularSwaggerView.as_view(url_name="schema"),
-                      name="swagger-ui",
-                  ),
-
-                 
                   re_path('admin/', admin.site.urls),
                   re_path(r'^auth/', include('djoser.urls')),
                   re_path(r'^auth/', include('djoser.urls.authtoken')),
+                  path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+                  path("api/swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui",),
                   # re_path(r'^auth/', include("djoser.urls.jwt")),
-
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

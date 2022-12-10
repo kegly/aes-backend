@@ -11,9 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import environ
-import os
 
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,22 +32,35 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
-
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'users',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'djoser',
-    'drf_yasg',
-    "drf_spectacular",
-
+DJANGO_APPS = [
+    "constance",  # Needs to be placed before jazzmin
+    "jazzmin",  # Needs to be placed before django.contrib.admin
+    "filebrowser",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
 ]
+
+THIRD_PARTY_APPS = [
+    "ckeditor",
+    "corsheaders",
+    "drf_spectacular",
+    "djoser",
+    "rest_framework",
+    "django_filters",
+    "tinymce",
+    "constance.backends.database",
+    "import_export",
+    "colorfield",
+]
+
+LOCAL_APPS = ["user_core"]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
 DJOSER = {
     "LOGIN_FIELD": "email",
     "USER_CREATE_PASSWORD_RETYPE": True,
@@ -147,30 +159,30 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "/static/"
-
 STATIC_ROOT = BASE_DIR / "static/"
-
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
-AUTH_USER_MODEL = 'users.User'
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_USERNAME_REQUIRED = False
+
+AUTH_USER_MODEL = 'user_core.User'
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+# Email settings
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
@@ -180,3 +192,11 @@ EMAIL_HOST_USER = env.str('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
 APPEND_SLASH = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+JAZZMIN_SETTINGS = {
+    "hide_apps": ("constance", "filebrowser", "auth"),
+    "site_title": "AES ITMO",
+    "site_header": "AES ITMO",
+    "site_brand": "AES ITMO",
+}
