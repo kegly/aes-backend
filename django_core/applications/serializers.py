@@ -12,4 +12,4 @@ class ApplicationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Application
-        fields = ('id', 'is_approved', 'student', 'project')
+        fields = ('id', 'is_approved', 'student', 'project', 'owner')

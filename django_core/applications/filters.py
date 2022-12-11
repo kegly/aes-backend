@@ -7,4 +7,4 @@ from .models import Application
 class ApplicationFilter(FilterSet):
     class Meta:
         model = Application
-        fields = ["project"]
+        fields = ["owner"]

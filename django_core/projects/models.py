@@ -9,6 +9,7 @@ class Project(models.Model):
     Model for a project
     """
     name = models.CharField(max_length=255)
+    owner = models.ForeignKey(HR, blank=True, null=True, on_delete=models.CASCADE)
     company = models.ForeignKey(Company, blank=True, null=True, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='projects', blank=True, null=True)
     description = models.TextField(blank=True, null=True)

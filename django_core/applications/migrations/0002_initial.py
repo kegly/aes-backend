@@ -9,14 +9,14 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('teams', '0001_initial'),
-        ('rating', '0001_initial'),
+        ('projects', '0001_initial'),
+        ('applications', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='rating',
-            name='team',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='ratings', to='teams.team'),
+            model_name='application',
+            name='project',
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='projects.project'),
         ),
     ]
