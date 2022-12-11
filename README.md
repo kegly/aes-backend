@@ -6,4 +6,4 @@
  :link: [aes-frontend](https://github.com/Nikita-quartZ/aes-frontend)
 
 ## Figma
-:link: [figma](https://www.figma.com/file/8wZVkvK7VP33YmVbK3p7jP/Untitled?node-id=0%3A3&t=PjvoEU6RV6kLgFeC-0)
+:link: [figma](https://www.figma.com/file/FgmS0A506z7P5vhcZrlTIp/Untitled-(Copy)?node-id=105%3A162&t=RWxtXkuGu1jUbd4y-0)
