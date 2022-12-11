@@ -4,8 +4,7 @@
 
 ## Frontend
  :link: [Репозиторий aes-frontend](https://github.com/Nikita-quartZ/aes-frontend)
+![Frame 25](https://user-images.githubusercontent.com/90460154/206898526-6629b403-d852-4594-a1a4-e4fe37e5cd69.png)
 
 ## Figma
 :link: [figma](https://www.figma.com/file/FgmS0A506z7P5vhcZrlTIp/Untitled-(Copy)?node-id=105%3A162&t=RWxtXkuGu1jUbd4y-0)
-
-![Frame 25](https://user-images.githubusercontent.com/90460154/206898526-6629b403-d852-4594-a1a4-e4fe37e5cd69.png)
