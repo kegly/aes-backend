@@ -6,7 +6,7 @@
  :link: [Репозиторий aes-frontend](https://github.com/Nikita-quartZ/aes-frontend)
  ![web pages](https://user-images.githubusercontent.com/90460154/206898882-1fb95393-e747-4d89-b381-70a1268e2347.png)
  
- Вы можете посмотреть прототип без бэкенда [тут](https://hacaton-dist.vercel.app/#/projects)
+ Вы можете посмотреть прототип без бэкенда [тут](https://hacaton-dist.vercel.app/#/projects), осторожно баги ❗️
 
 ##  Installation
 <details>
