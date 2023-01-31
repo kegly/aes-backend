@@ -2,6 +2,9 @@
 
 ![photo_2022-12-10 12 11 06](https://user-images.githubusercontent.com/90460154/206842648-d02dc01c-1713-47cd-b80f-c04389dc095e.jpeg)
 
+Кейс, подготовленный в рамках реализации федерального проекта «Передовые инженерные школы» (ПИШ) в Университете ИТМО.    
+Web-сервис для удобного и автоматизированного функционирования Цифровой Платформы ПИШ ИТМО.
+
 ## Frontend
  :link: [Репозиторий aes-frontend](https://github.com/Nikita-quartZ/aes-frontend)
  ![web pages](https://user-images.githubusercontent.com/90460154/206898882-1fb95393-e747-4d89-b381-70a1268e2347.png)
